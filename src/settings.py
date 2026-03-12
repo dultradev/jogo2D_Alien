@@ -23,3 +23,4 @@ class Settings:
             10  # Velocidade com que a frota de alienígenas desce em direção à nave
         )
         self.fleet_direction = 1  # Direção da frota de alienígenas: 1 representa a direita; -1 representa a esquerda
+        

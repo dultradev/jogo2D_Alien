@@ -1,5 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
+from typing import Any
 
 
 # Nesse momento é utilizado o conceito de HERANÇA de Orientação a Objetos, onde a classe Bullet herda os atributos e métodos da classe Sprite, que é uma classe do Pygame usada para representar objetos visuais no jogo.
@@ -8,8 +9,11 @@ class Bullet(Sprite):
     """Gerencia os projéteis disparados pela nave."""
 
     def __init__(
-        self, alien_invasion_screen, alien_invasion_settings, alien_invasion_ship
-    ):
+        self,
+        alien_invasion_screen: Any,
+        alien_invasion_settings: Any,
+        alien_invasion_ship: Any,
+    ) -> None:
         """Cria um objeto para o projétil na posição atual da nave."""
         super().__init__()  # Chama o construtor da classe Sprite para garantir que a classe Bullet seja inicializada corretamente como um sprite do Pygame
         self.screen = alien_invasion_screen
@@ -27,16 +31,14 @@ class Bullet(Sprite):
             self.rect.y
         )  # Armazena a posição vertical do projétil como um número de ponto flutuante para permitir movimentos suaves
 
-    def update(self):
+    def update(self) -> None:
         """Move o projétil para cima na tela."""
         self.y -= (
             self.settings.bullet_speed
         )  # Move o projétil para cima diminuindo a coordenada y
-        self.rect.y = (
-            self.y
-        )  # Atualiza a posição do rect do projétil com base na nova coordenada y
+        self.rect.y = int(self.y)
 
-    def draw_bullet(self):
+    def draw_bullet(self) -> None:
         """Desenha o projétil na tela."""
         pygame.draw.rect(
             self.screen, self.color, self.rect
