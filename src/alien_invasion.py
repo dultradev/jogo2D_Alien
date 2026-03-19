@@ -60,6 +60,8 @@ class AlienInvasion:
                 alien.rect.y = alien.y
                 self.aliens.add(alien)
 
+    
+
     def run_game(self):
         """Cria um laço de repetição para a tela sempre ficar visível até
         que o usuário decida fechar a janela."""
