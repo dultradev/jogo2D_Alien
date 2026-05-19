@@ -1,5 +1,13 @@
+import pygame
+import sys
+
+# ADICIONE ESTE IMPORT (ajuste o nome do arquivo se for diferente de 'bullet')
+from bullet import Bullet
+
+
 class BulletManager:
     """Responsável apenas por criar, atualizar e desenhar os projéteis."""
+
     def __init__(self, screen, settings, ship) -> None:
         self.screen = screen
         self.settings = settings
@@ -9,6 +17,7 @@ class BulletManager:
     def _fire_bullet(self) -> None:
         """Dispara um projétil se o limite de projéteis ainda não tiver sido alcançado."""
         if len(self.bullets) < self.settings.bullet_allowed:
+            # Corrigido de '==' para '=' aqui:
             new_bullet = Bullet(self.screen, self.settings, self.ship)
             self.bullets.add(new_bullet)
 
